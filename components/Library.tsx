@@ -1,12 +1,23 @@
 "use client";
 
+import useAuthModal from "@/hooks/UseAuthModal";
+import useUploadModal from "@/hooks/UseUploadModal";
+import { useUser } from "@/hooks/useUser";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 
 const Library = () => {
+	const authModal = useAuthModal();		
+	const uplodadModal = useUploadModal();
+	const { user } = useUser();
+	
 	const onClick = () => {
-		// Handled upload later
-	}
+		if(!user) return authModal.onOpen();
+		return uplodadModal.onOpen();
+
+		// TODO: Check for subscription
+	};
+
 	return (
 		<div className="flex flex-col">
 			<div 
