@@ -46,6 +46,7 @@ const ListItem: React.FC<ListItemProps> = ({
 						relative
 						min-h-[64px]
 						min-w-[64px]
+						select-none
 					"
 				>
 					<Image
@@ -53,6 +54,7 @@ const ListItem: React.FC<ListItemProps> = ({
 						fill
 						src={image}
 						alt="Image"
+						draggable={false}
 					/>
 				</div>
 				<p className="font-medium truncate py-5">

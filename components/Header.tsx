@@ -10,7 +10,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-import useAuthModal from "@/hooks/UseAuthModal";
+import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
 import Button from "./Button";
