@@ -2,6 +2,7 @@ import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import PageContent from "./components/PageContent";
+import Greeting from "@/components/Greeting";
 
 export const revalidate = 0;
 
@@ -18,15 +19,7 @@ export default async function Home() {
 		">
 			<Header>
 				<div className="mb-2">
-					<h1
-						className="
-							text-white
-							text-3xl
-							font-semibold
-						"
-					>
-						Welcome Back!
-					</h1>
+				<Greeting/>
 					<div
 						className="
 							grid 

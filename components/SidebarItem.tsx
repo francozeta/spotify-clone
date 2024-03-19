@@ -1,15 +1,19 @@
 import Link from "next/link";
-import { IconType } from "react-icons";
+/* import { IconType } from "react-icons"; */
 import { twMerge } from "tailwind-merge";
 
+
+
 interface SidebarItemProps {
-	icon: IconType,
+	icon: any,
+	activeIcon: any,
 	label: string,
 	active?: boolean,
 	href: string
 }
 const SidebarItem: React.FC<SidebarItemProps> = ({
 	icon: Icon,
+	activeIcon: ActiveIcon,
 	label,
 	active,
 	href
@@ -35,7 +39,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			 	active && "text-white"
 			)}
 		>
-			<Icon size={26}/>
+			{active ? <ActiveIcon size={26}/> : <Icon size={26}/>}
+			{/* <Icon size={26}/> */}
 			<p className="truncate w-full">{label}</p>
 		</Link>
 	);

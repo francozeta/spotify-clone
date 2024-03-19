@@ -2,8 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
-import { BiSearch } from "react-icons/bi";
-import { HiHome } from "react-icons/hi";
 import toast from "react-hot-toast";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { FaUserAlt } from "react-icons/fa";
@@ -14,6 +12,8 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
 import Button from "./Button";
+import HomeIcon from "@/icons/HomeIcon";
+import SearchIcon from "@/icons/SearchIcon";
 
 interface HeaderProps {
 	children: React.ReactNode,
@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({
 							transition
 						"
 					>
-						<HiHome className="text-black" size={20} />
+						<HomeIcon className="text-black" size={20} />
 					</button>
 					<button
 						onClick={() => router.push('/search')}
@@ -126,7 +126,7 @@ const Header: React.FC<HeaderProps> = ({
 							transition
 						"
 					>
-						<BiSearch className="text-black" size={20} />
+						<SearchIcon className="text-black" size={20} />
 					</button>
 				</div>
 				<div

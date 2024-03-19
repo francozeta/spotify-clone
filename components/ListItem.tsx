@@ -1,5 +1,8 @@
 "use client";
 
+import useAuthModal from "@/hooks/useAuthModal";
+import { useUser } from "@/hooks/useUser";
+import PlayIcon from "@/icons/PlayIcon";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
@@ -17,14 +20,20 @@ const ListItem: React.FC<ListItemProps> = ({
 	href
 }) => {
 	const router = useRouter();
+	const authModal = useAuthModal();
+	const { user } = useUser();
 
 	const onClick = () => {
+		if (!user) {
+			return authModal.onOpen();
+		}
 		// Add authentication before pushing
 		router.push(href)
 	}
 	return (
 		<div>
 			<button
+				onClick={onClick}
 				className="
         relative 
         group 
@@ -41,7 +50,7 @@ const ListItem: React.FC<ListItemProps> = ({
 				w-full
 				"
 			>
-				<div 
+				<div
 					className="
 						relative
 						min-h-[64px]
@@ -70,14 +79,15 @@ const ListItem: React.FC<ListItemProps> = ({
 						items-center
 						justify-center
 						bg-green-500
-						p-4
+						p-2
 						drop-shadow-md
-						right-5
+						right-3
 						group-hover:opacity-100
 						hover:scale-110
+						size-fit
 					"
 				>
-					<FaPlay className="text-black"/>
+					<PlayIcon className="text-black" size={35} />
 				</div>
 			</button>
 		</div>
