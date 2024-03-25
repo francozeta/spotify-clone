@@ -5,9 +5,9 @@ const Greeting = () => {
 
 	let greeting = "";
 
-	if(greeting < 12) {
+	if(currentHour < 12) {
 		greeting = "Good morning!";
-	} else if (currentHour <= 19) {
+	} else if (currentHour < 19) {
 		greeting = "Good evening!";
 	} else {
 		greeting = "Good night!";

@@ -12,7 +12,6 @@ type userContextType = {
 	subscription: Subscription | null
 }
 
-/* 1:35:50 */
 
 export const UserContext = createContext<userContextType | undefined>(
 	undefined
