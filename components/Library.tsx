@@ -5,10 +5,10 @@ import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
 import { AiOutlinePlus } from "react-icons/ai";
-import { TbPlaylist } from "react-icons/tb";
 import MediaItem from "./MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import PlaylistIcon from "@/icons/PlaylistIcon";
+import useSubscribeModal from "@/hooks/useSubscribeModal";
 
 interface LibraryProps {
 	songs: Song[]
@@ -17,21 +17,27 @@ interface LibraryProps {
 const Library: React.FC<LibraryProps> = ({
 	songs
 }) => {
-	const authModal = useAuthModal();		
-	const uplodadModal = useUploadModal();
-	const { user } = useUser();
-	const onPlay = useOnPlay(songs);
-	
-	const onClick = () => {
-		if(!user) return authModal.onOpen();
-		return uplodadModal.onOpen();
+	const subscribeModal = useSubscribeModal();
 
-		// TODO: Check for subscription
+	const authModal = useAuthModal();
+	const uplodadModal = useUploadModal();
+	const { user, subscription } = useUser();
+	const onPlay = useOnPlay(songs);
+
+	const onClick = () => {
+		if (!user) {
+			return authModal.onOpen();
+		}
+
+		if (!subscription) {
+			return subscribeModal.onOpen();
+		}
+		return uplodadModal.onOpen();
 	};
 
 	return (
 		<div className="flex flex-col">
-			<div 
+			<div
 				className="
 					flex
 					items-center
@@ -47,7 +53,7 @@ const Library: React.FC<LibraryProps> = ({
 						gap-x-2
 					"
 				>
-					<PlaylistIcon className="text-neutral-400" size={26}/>
+					<PlaylistIcon className="text-neutral-400" size={26} />
 					<p
 						className="
 							text-neutral-400
@@ -87,5 +93,5 @@ const Library: React.FC<LibraryProps> = ({
 		</div>
 	);
 }
- 
+
 export default Library;

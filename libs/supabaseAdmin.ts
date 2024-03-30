@@ -67,7 +67,6 @@ const createOrRetrieveCustomer = async ({
     .select('stripe_customer_id')
     .eq('id', uuid)
     .single();
-
   if (error || !data?.stripe_customer_id) {
     const customerData: { metadata: { supabaseUUID: string }; email?: string } = {
       metadata: {
