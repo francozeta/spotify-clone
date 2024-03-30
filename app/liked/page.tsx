@@ -5,9 +5,6 @@ import LikedContent from "./components/LikedContent";
 
 export const revalidate = 0;
 
-interface LikedProps {
-
-}
 const Liked = async () => {
 	const songs = await getLikedSongs();
 	return (
@@ -40,10 +37,10 @@ const Liked = async () => {
 							lg:w-44
 						">
 							<Image
-							draggable={false}
+								draggable={false}
 								fill
 								alt="Playlist"
-								src={'/images/liked.png'}
+								src={'public/images/liked.png'}
 								className="object-cover"
 							/>
 						</div>

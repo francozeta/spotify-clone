@@ -5,13 +5,11 @@ import { useUser } from "@/hooks/useUser";
 import PlayIcon from "@/icons/PlayIcon";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FaPlay } from "react-icons/fa";
 
 interface ListItemProps {
 	image: string,
 	name: string,
 	href: string
-
 }
 
 const ListItem: React.FC<ListItemProps> = ({
@@ -35,19 +33,19 @@ const ListItem: React.FC<ListItemProps> = ({
 			<button
 				onClick={onClick}
 				className="
-        relative 
-        group 
-        flex 
-        items-center 
-        rounded-md 
-        overflow-hidden 
-        gap-x-4 
-      	bg-neutral-100/10 
-        cursor-pointer 
-      	hover:bg-neutral-100/20 
-        transition 
-        pr-4
-				w-full
+					relative 
+					group 
+					flex 
+					items-center 
+					rounded-md 
+					overflow-hidden 
+					gap-x-4 
+					bg-neutral-100/10 
+					cursor-pointer 
+					hover:bg-neutral-100/20 
+					transition 
+					pr-4
+					w-full
 				"
 			>
 				<div

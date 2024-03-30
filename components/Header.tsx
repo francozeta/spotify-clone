@@ -190,5 +190,3 @@ const Header: React.FC<HeaderProps> = ({
 }
 
 export default Header;
-
-/* 2:19:13 */
