@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 interface DatabaseProps {
 	children: React.ReactNode;
-
 };
 
 const SupabaseProvider: React.FC<DatabaseProps> = ({

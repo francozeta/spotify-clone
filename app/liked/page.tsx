@@ -40,7 +40,7 @@ const Liked = async () => {
 								draggable={false}
 								fill
 								alt="Playlist"
-								src={'public/images/liked.png'}
+								src={'/images/liked.png'}
 								className="object-cover"
 							/>
 						</div>
